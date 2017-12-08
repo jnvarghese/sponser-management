@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('sponsermgt App', () => {
+describe('sms App', () => {
   let page: AppPage;
 
   beforeEach(() => {

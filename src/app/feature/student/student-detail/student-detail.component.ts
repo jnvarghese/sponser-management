@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-student-detail',
@@ -9,13 +10,25 @@ import { Router } from '@angular/router';
 export class StudentDetailComponent implements OnInit {
 
   constructor(private router: Router) { }
-
+  addStudentForm: FormGroup;
+  firstName = new FormControl('', Validators.required);
+  lastName = new FormControl('', Validators.required);
+  dateOfBirth = new FormControl('', Validators.required);
+  address = new FormControl('', Validators.required);
+  //gender = new FormControl(Validators.required);
   ngOnInit() {
-    
+    this.addStudentForm = new FormGroup({
+      firstName: this.firstName,
+      lastName: this.lastName,
+      dateOfBirth: this.dateOfBirth,
+      address: this.address,
+      // gender: this.gender
+    });
   }
-
-  cancel(){
+  saveStudentDetails(studentFormvalue) {
     this.router.navigate(['/students']);
   }
-
+  cancel() {
+    this.router.navigate(['/students']);
+  }
 }

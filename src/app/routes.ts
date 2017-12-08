@@ -6,8 +6,9 @@ import {
   studentRoutes,
   sponserRoutes,
   sponserRoutingComponents,
-  studentRoutingComponents,
-  EnrollmentComponent} from './feature/index';
+  studentRoutingComponents
+} from './feature/index';
+import { EnrollmentComponent } from "./feature/enrollment/enrollment.component";
 
 export const appRoutes: Routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full'},

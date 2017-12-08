@@ -6,6 +6,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppComponent } from './app.component';
 import { InMemoryDataService } from './core/in-memory-data-service';
 import { appRoutes } from './routes';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import {
   SponserComponent,
   SponserDetailComponent,
@@ -16,9 +18,9 @@ import {
   PageNotFoundComponent,
   HeaderComponent,
   FooterComponent,
-  JQ_TOKEN,
-  EnrollmentComponent} from './feature/index';
+  JQUERY_PROVIDER} from './feature/index';
 import { appRoutingComponents, AppRoutingModule } from './index';
+import { EnrollmentComponent } from "./feature/enrollment/enrollment.component";
 
 declare let jQuery: Object;
 
@@ -38,6 +40,8 @@ declare let jQuery: Object;
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     // The HttpClientInMe,moryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
@@ -48,7 +52,7 @@ declare let jQuery: Object;
   providers: [
     StudentService, 
     SponserService,
-    { provide: JQ_TOKEN, useValue: jQuery },
+    JQUERY_PROVIDER
   ],
   bootstrap: [AppComponent]
 })
